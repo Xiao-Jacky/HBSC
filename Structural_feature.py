@@ -6,7 +6,6 @@ import torch.optim as optim
 import os
 import glob
 
-#设置随机数种子保持重复性
 torch.manual_seed(42)
 # 从 DOT 文件中解析图结构和节点特征
 def parse_dot_file(file_path):
@@ -19,9 +18,9 @@ def parse_dot_file(file_path):
             match = re.findall(r'(\d+) -> (-?\d+)', line)
             if match:
                 src, dst = map(int, match[0])
-                graph.add_edge(src, dst)  # 添加边
+                graph.add_edge(src, dst) 
                 if dst == -1:
-                    graph.nodes[src]['stop_block'] = True  # 标记特殊节点
+                    graph.nodes[src]['stop_block'] = True  
         elif '[label=' in line:
             match = re.findall(r'(\d+)\[label="\[([^]]*)\]"\]', line)
             if match:
@@ -43,9 +42,9 @@ class Structure2Vec(nn.Module):
         self.fc2 = nn.Linear(hidden_dim, hidden_dim)
         self.leaky_relu = nn.LeakyReLU(leaky_relu_slope)
 
-    def forward(self, graph, num_iterations=3):  # 增加迭代次数
+    def forward(self, graph, num_iterations=3):  
         embeddings = {node: self.leaky_relu(self.fc1(data['feature'])) for node, data in graph.nodes(data=True) if 'feature' in data}
-        for _ in range(num_iterations):  # 迭代更新嵌入
+        for _ in range(num_iterations):  
             updated_embeddings = {}
             for node in graph.nodes():
                 if 'feature' in graph.nodes[node]:
@@ -80,7 +79,4 @@ def process_dot_files(folder_path):
         mean_embedding = torch.mean(torch.stack(list(embeddings.values())), 0)
         print(f"File: {os.path.basename(file_path)} - Mean Embedding: {mean_embedding}")
 
-# 指定文件夹路径
-folder_path = ' '
-process_dot_files(folder_path)
 
