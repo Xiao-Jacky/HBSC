@@ -8,7 +8,6 @@ def generate_cfg_from_bytecode(bytecode: str, contract_name: str) -> Cfg:
     return cfg
 
 def process_folder(folder_path: str, output_folder: str):
-    # 确保输出文件夹存在
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
@@ -18,7 +17,6 @@ def process_folder(folder_path: str, output_folder: str):
             with open(file_path, 'r') as file:
                 bytecode = file.read()
 
-            # 将文件名中的'.evm'替换为'.dot'
             dot_file_name = filename.replace('.evm', '.dot')
             dot_file_path = os.path.join(output_folder, dot_file_name)
 
@@ -28,12 +26,7 @@ def process_folder(folder_path: str, output_folder: str):
             # 保存为.dot文件
             cfg.storedot()
 
-            print(f"CFG generated and saved for {contract_name}")
 
-# 使用示例
-source_folder = ""
-output_folder = ""
-process_folder(source_folder, output_folder)
 
 
 
