@@ -1,7 +1,7 @@
 # HBSC
 Code release and supplementary materials for: __"Enhancing Smart Contract Vulnerability Detection with Hybrid Bytecode and Source Code Features"__.
 ## Repo structure
-BasicBlock.py、BlockType.py: Code for basic block dividing.   
+``BasicBlock.py、BlockType.py``: Code for basic block dividing.   
 
 ``Cfg.py、CfgBuilder.py``: Code for details of cfg generation.  
 
