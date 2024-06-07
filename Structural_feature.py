@@ -7,7 +7,6 @@ import os
 import glob
 
 torch.manual_seed(42)
-# 从 DOT 文件中解析图结构和节点特征
 def parse_dot_file(file_path):
     with open(file_path, 'r') as file:
         dot_str = file.read()
