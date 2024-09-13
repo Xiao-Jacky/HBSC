@@ -17,9 +17,9 @@ def parse_dot_file(file_path):
             match = re.findall(r'(\d+) -> (-?\d+)', line)
             if match:
                 src, dst = map(int, match[0])
-                graph.add_edge(src, dst)  # 添加边
+                graph.add_edge(src, dst)  
                 if dst == -1:
-                    graph.nodes[src]['stop_block'] = True  # 标记特殊节点
+                    graph.nodes[src]['stop_block'] = True  
         elif '[label=' in line:
             match = re.findall(r'(\d+)\[label="\[([^]]*)\]"\]', line)
             if match:
