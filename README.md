@@ -7,7 +7,7 @@ An efficient vulnerability detection method for smart contracts.</b>
 
 <p align="center">
 Code release and supplementary materials for:</br>
-<b>"Enhancing Smart Contract Vulnerability Detection with Hybrid Bytecode and Source Code Features"</b></br>
+<b>"Enhancing Smart Contract Vulnerability Detection via Dual-Source Feature Extraction and Fusion"</b></br>
 
 ## Repo structure
 - `BasicBlock.py、BlockType.py`: Code for basic block dividing.   
