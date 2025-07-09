@@ -1,4 +1,4 @@
-<h1 align="center">HBSC</h1>
+<h1 align="center">DualSVD</h1>
 
 
 <p align="center">
